@@ -1,8 +1,8 @@
-pragma solidity ^0.5.0;
+pragma solidity ^0.4.17;
 
 contract Payment {
   address transferFrom;
-  address payable transferTo;
+  address transferTo;
 
   constructor() public {
     transferFrom = msg.sender;
@@ -10,7 +10,7 @@ contract Payment {
 
   event TransferFund(address _transferTo, address _transferFrom, uint amount);
 
-  function transferFund( address payable _transferTo ) public payable returns (bool){
+  function transferFund( address _transferTo ) public payable returns (bool){
       transferTo = _transferTo;
 
       transferTo.transfer(msg.value);
